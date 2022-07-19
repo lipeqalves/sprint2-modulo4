@@ -1,6 +1,5 @@
 class DicaModel{
-    constructor(id,dica){
-        this.id = id,
+    constructor(dica){
         this.dica = dica
     }
 }

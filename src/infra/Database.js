@@ -1,4 +1,4 @@
-const Database = {
-    Dicas: []
+export const Database = {
+    Dicas: [],
 }
-export default Database;
+ 

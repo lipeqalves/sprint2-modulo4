@@ -12,4 +12,6 @@ app.listen(port, () => {
     console.log(`Service ativo em http://localhost:${port}`);
 })
 
+app.use(express.json())
+
 Dicas.rotas(app);
