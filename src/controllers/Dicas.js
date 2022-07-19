@@ -5,9 +5,9 @@ class Dicas{
     static rotas(app){
         app.get("/dicas", (req, res) => {
 
-            const response = DatabaseMetodos.listaTodasDicas()
+            const response = DatabaseMetodos.escolheDica()
             res.status(200).json(response)
-            
+
         })
         
         app.post("/dicas",(req, res) => {  
@@ -19,14 +19,5 @@ class Dicas{
         })
     }
 }
-
-// function geraNumAleatorio() {
-//     return Math.floor(Math.random() * 10)
-//   }
-//   //let id = geraNumAleatorio();
-  
-//   function buscalivro(id){
-//     return Dicas.findIndex(dica => dica.id == id)
-//   }
 
 export default Dicas;
