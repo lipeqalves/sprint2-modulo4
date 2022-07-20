@@ -1,4 +1,5 @@
 import DicaModel from "../models/DicaModel.js";
+import ValidacoesService from "../services/ValidacoesService.js";
 import DatabaseMetodos from "../utils/DatabaseMetodos.js";
 
 class Dicas{
@@ -11,11 +12,16 @@ class Dicas{
         })
         
         app.post("/dicas",(req, res) => {  
-
-            const dica = new DicaModel(...Object.values(req.body)) 
-            const response = DatabaseMetodos.inserirDica(dica)
+            const ehValido = ValidacoesService.validaDica(req.body.dica)
             
-            res.status(201).json(response)
+            if(ehValido){
+                const dica = new DicaModel(...Object.values(req.body)) 
+                const response = DatabaseMetodos.inserirDica(dica)
+                
+                res.status(201).json(response)
+            }else{
+                res.status(400).send(`Erro: ${req.body.dica} é uma dica ?`);
+            }
         })
     }
 }
